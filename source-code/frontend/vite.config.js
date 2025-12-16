@@ -4,16 +4,16 @@ import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
+ plugins: [
     react({
-      // Enable Fast Refresh for better dev experience
       fastRefresh: true,
     }),
   ],
-  base: "/",
+  // Change this from "/" to your folder name
+  base: "/frontend/", 
+  
   resolve: {
     alias: {
-      // eslint-disable-next-line no-undef
       "@": path.resolve(__dirname, "./src/"),
     },
   },
