@@ -1,8 +1,11 @@
 <?php
-
 define('DEFAULT_PAGE', 1);
 define('DEFAULT_PAGE_LIMIT', 10);
 
+if (!defined('DEFAULT_PAGE')) define('DEFAULT_PAGE', 1);
+if (!defined('DEFAULT_PAGE_LIMIT')) define('DEFAULT_PAGE_LIMIT', 10);
+
+if (!function_exists('getPagination')) {
 function getPagination($query): array
 {
     $page = abs($query['page']) ?: DEFAULT_PAGE;
@@ -14,6 +17,7 @@ function getPagination($query): array
         'limit' => $limit
     ];
 }
+} // end if !function_exists
 
 return [
     'getPagination' => 'getPagination'

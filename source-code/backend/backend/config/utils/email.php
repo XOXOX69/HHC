@@ -1,8 +1,7 @@
 <?php
-
 use App\Mail\Sendmail;
 use Illuminate\Support\Facades\Mail;
-
+if (!function_exists('sendEmail')) {
 function sendEmail($emailConfig, $customerEmail, $mailData, $cc = null, $bcc = null): bool
 {
     //set the config
@@ -60,3 +59,4 @@ function sendEmail($emailConfig, $customerEmail, $mailData, $cc = null, $bcc = n
     }
 
 }
+} // end if !function_exists

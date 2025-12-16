@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Mail;
 /**
  * @throws Exception
  */
+if (!function_exists('MailSend')) {
 function MailSend($saleData, $product = null, $vatId = null, $receiverEmail = null): void
 { 
       
@@ -130,9 +131,10 @@ function MailSend($saleData, $product = null, $vatId = null, $receiverEmail = nu
         $email = Mail::to($receiverEmail)->send(new Sendmail($data));
         if (!$email) {
             throw new Exception("Email not sent");
+
         }
-    
-}
+    }
+    // end if !function_exists
 
 /**
  * @throws Exception
@@ -183,5 +185,5 @@ function MailForReorder($reorderData, $productIds, $receiverEmail): void
         if (!$email) {
             throw new Exception("Email not sent");
         }
-
 }
+} // end if !function_exists

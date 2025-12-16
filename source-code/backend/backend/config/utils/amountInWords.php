@@ -1,4 +1,5 @@
 <?php
+if (!function_exists('numberToWords')) {
 function numberToWords($number): string
 {
     $units = array('', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine');
@@ -53,4 +54,5 @@ function numberToWords($number): string
     // Combine all chunks' words and return the result
     return implode(' ', $words);
 }
+} // end if !function_exists
 
